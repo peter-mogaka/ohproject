@@ -52,6 +52,8 @@ namespace poi
                 })
                 .UseStartup<Startup>()
                 .UseUrls(POIConfiguration.GetUri(configuration));
+            
+                .UseStartup<Startup>()
 
             return host;
 
