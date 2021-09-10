@@ -62,6 +62,9 @@ namespace poi
             app.UseSwagger(c =>
                 c.RouteTemplate = "swagger/{documentName}/poi/swagger.json"
             );
+             app.UseSwagger(c =>
+                c.RouteTemplate = "swagger/{documentName}/poi/swagger.json"
+            );
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
