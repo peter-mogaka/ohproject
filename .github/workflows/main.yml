@@ -84,8 +84,7 @@ jobs:
       
     - name: iamge name
       shell: bash
-      run: |
-        echo  "IMAGE NAME IS $registry/$repository:${{github.run_number}}"
+      run: echo  "IMAGE NAME IS $GITHUB_CONTEXT"
 
     - name: Docker Push
       run: docker push $registry/$repository:${{github.run_number}}  
