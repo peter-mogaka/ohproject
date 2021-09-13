@@ -82,9 +82,10 @@ jobs:
     - name: Docker build
       run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
       
-    - name: Docker build
+    - name: iamge name
       shell: bash
-      run: echo $registry/$repository:${{github.run_number}}
+      run: |
+        echo  "IMAGE NAME IS $registry/$repository:${{github.run_number}}"
 
     - name: Docker Push
       run: docker push $registry/$repository:${{github.run_number}}  
