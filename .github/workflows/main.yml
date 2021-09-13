@@ -4,7 +4,7 @@ name: POI CICD
 env:
   poi_path: apis/poi/**
   registry: docker.pkg.github.com
-  repository: peter-mogaka/ohproject/apis/poi
+  repository: petermogaka/ohproject/apis/poi
   docker_path: apis/poi/web
   staging_url: https://openhack8vv7zc35poi-staging.azurewebsites.net
   prod_url: https://openhack8vv7zc35poi.azurewebsites.net
