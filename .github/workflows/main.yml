@@ -2,9 +2,9 @@
 name: POI CICD
 
 env:
-  poi_path: apis/poi/**
+  poi_path: apis/poi/
   registry: docker.pkg.github.com
-  repository: petermogaka/ohproject/apis/poi
+  repository: peter-mogaka/ohproject/apis/poi
   docker_path: apis/poi/web
   staging_url: https://openhack8vv7zc35poi-staging.azurewebsites.net
   prod_url: https://openhack8vv7zc35poi.azurewebsites.net
@@ -81,7 +81,13 @@ jobs:
 
     - name: Docker build
       run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
-        echo $registry/$repository:${{github.run_number}}
+      
+    - uses: actions/github-script@0.9.0
+      if: failure()
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          echo $registry/$repository:${{github.run_number}}
 
     - name: Docker Push
       run: docker push $registry/$repository:${{github.run_number}}  
