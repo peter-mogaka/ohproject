@@ -86,11 +86,11 @@ jobs:
     - name: Image name
       shell: bash
       run: |
-        echo  "IMAGE NAME IS $GITHUB_CONTEXT"
+        echo  "peter-mogaka/ohproject/apis/poi:${{github.run_number}}"
         echo  "$registry/$repository:${{github.run_number}}"
 
     - name: Docker Push
-      run: docker push $registry/$repository:${{github.run_number}}  
+      run: docker push peter-mogaka/ohproject/apis/poi:${{github.run_number}}  
 
     - uses: actions/github-script@0.9.0
       if: failure()
