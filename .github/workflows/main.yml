@@ -82,12 +82,9 @@ jobs:
     - name: Docker build
       run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
       
-    - uses: actions/github-script@0.9.0
-      if: failure()
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          echo $registry/$repository:${{github.run_number}}
+    - name: Docker build
+      shell: bash
+      run: echo $registry/$repository:${{github.run_number}}
 
     - name: Docker Push
       run: docker push $registry/$repository:${{github.run_number}}  
