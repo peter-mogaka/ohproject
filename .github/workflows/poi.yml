@@ -86,7 +86,7 @@ jobs:
     - name: Image name
       shell: bash
       run: |
-        echo  "peter-mogaka/ohproject/apis/poi:${{github.run_number}}"
+        echo  "$registry/${{ github.repository }}:${{github.run_number}}"
         echo  "$registry/$repository:${{github.run_number}}"
 
     - name: Docker Push
